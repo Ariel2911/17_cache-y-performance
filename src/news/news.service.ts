@@ -14,4 +14,13 @@ export class NewsService {
       },
     );
   }
+
+  getTopHeadLines(): Promise<AxiosResponse<any, any>> {
+    return this.httpService.axiosRef.get(
+      'https://newsapi.org/v2/top-headlines?country=ar&category=business',
+      {
+        headers: { 'X-Api-Key': process.env.API_KEY },
+      },
+    );
+  }
 }
